@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Boring Calculator</title>
+</head>
+
+<body>
+    <div class="container mx-auto mt-5 bg-light">
+        <form>
+            <div class="row">
+                <div class="col-lg-4 mb-3">
+                    <label for="num1" class="form-label">Number 1</label>
+                    <input type="text" class="form-control" id="num1">
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <label for="operator" class="form-label">Operator</label>
+                    <select class="form-select" id="operator" aria-label="Default select example">
+                        <option value="+" selected>+</option>
+                        <option value="-">-</option>
+                        <option value="*">*</option>
+                        <option value="/">/</option>
+                    </select>
+                </div>
+                <div class="col-lg-4 mb-3 form-check">
+                    <label for="num2" class="form-label">Number 2</label>
+                    <input type="text" class="form-control" id="num2">
+                </div>
+                <button type="button" onclick="calculateResult()" class="btn btn-primary">Calculate</button>
+            </div>
+        </form>
+        <div class="container-fluid">
+            <div class="col-lg-4 col-12 mx-auto my-5">
+                <fieldset disabled>
+                    <label for="out" class="form-label">Answer</label>
+                    <input type="text" id="out" class="form-control" disabled>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <script>
+        function calculateResult() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var operator = document.getElementById('operator').value;
+            var output;
+
+            switch (operator) {
+                case "+":
+                    output = num1 + num2;
+                    break;
+                case "-":
+                    output = num1 - num2;
+                    break;
+                case "*":
+                    output = num1 * num2;
+                    break;
+                case "/":
+                    output = num1 / num2;
+                    break;
+                default:
+                    output = "Error";
+            }
+            
+            document.getElementById('out').value = output;
+        }
+
+    </script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
